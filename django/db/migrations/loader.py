@@ -102,7 +102,10 @@ class MigrationLoader(object):
                 if was_loaded:
                     six.moves.reload_module(module)
             self.migrated_apps.add(app_config.label)
-            migration_names = {name for _, name, is_pkg in pkgutil.iter_modules(module.__path__) if not is_pkg}
+            migration_names = {
+                name for _, name, is_pkg in pkgutil.iter_modules(module.__path__)
+                if not is_pkg and name[0] not in '_~'
+            }
             # Load migrations
             for migration_name in migration_names:
                 migration_path = '%s.%s' % (module_name, migration_name)
