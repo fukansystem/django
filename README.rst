@@ -1,48 +1,14 @@
-======
-Django
-======
+Fork of django/django to cherry-pick patches for Fukan system.
 
-Django is a high-level Python Web framework that encourages rapid development
-and clean, pragmatic design. Thanks for checking it out.
+Cherry-picks:
 
-All documentation is in the "``docs``" directory and online at
-https://docs.djangoproject.com/en/stable/. If you're just getting started,
-here's how we recommend you read the docs:
+    | $ git cherry-pick 29150d5da880ac1db15e47052330790cf1b802d2
+    | $ git cherry-pick 32fbccab406b680bc0a0a8d39a9b95c3a08bbc5a
+    | $ git cherry-pick 3cd3bebe8921e14b911b36b2a1cbceef8fb6294e
 
-* First, read ``docs/intro/install.txt`` for instructions on installing Django.
+To run affected tests:
 
-* Next, work through the tutorials in order (``docs/intro/tutorial01.txt``,
-  ``docs/intro/tutorial02.txt``, etc.).
-
-* If you want to set up an actual deployment server, read
-  ``docs/howto/deployment/index.txt`` for instructions.
-
-* You'll probably want to read through the topical guides (in ``docs/topics``)
-  next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific
-  problems, and check out the reference (``docs/ref``) for gory details.
-
-* See ``docs/README`` for instructions on building an HTML version of the docs.
-
-Docs are updated rigorously. If you find any problems in the docs, or think
-they should be clarified in any way, please take 30 seconds to fill out a
-ticket here: https://code.djangoproject.com/newticket
-
-To get more help:
-
-* Join the ``#django`` channel on irc.freenode.net. Lots of helpful people hang
-  out there. See https://en.wikipedia.org/wiki/Wikipedia:IRC/Tutorial if you're
-  new to IRC.
-
-* Join the django-users mailing list, or read the archives, at
-  https://groups.google.com/group/django-users.
-
-To contribute to Django:
-
-* Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for
-  information about getting involved.
-
-To run Django's test suite:
-
-* Follow the instructions in the "Unit tests" section of
-  ``docs/internals/contributing/writing-code/unit-tests.txt``, published online at
-  https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#running-the-unit-tests
+    | $ docker run -it --rm -v $(pwd):/src asia.gcr.io/fukansystem3/runtime /bin/bash
+    | # cd /src/tests
+    | # pip install -r requirements/py3.txt --user
+    | # PYTHONPATH='/src' ./runtests.py migrations.test_loader
