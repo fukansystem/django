@@ -12,3 +12,10 @@ To run affected tests:
     | # cd /src/tests
     | # pip install -r requirements/py3.txt --user
     | # PYTHONPATH='/src' ./runtests.py migrations.test_loader
+
+To rebase on the upstream:
+
+    | $ git fetch upstream
+    | $ git checkout stable/3.0.x
+    | $ git rebase upstream/stable/3.0.x
+    | $ git push -f origin master
