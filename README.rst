@@ -15,6 +15,7 @@ To run affected tests:
 
 To rebase on the upstream:
 
+    | $ git remote add upstream https://github.com/django/django.git
     | $ git fetch upstream
     | $ git checkout stable/3.0.x
     | $ git rebase upstream/stable/3.0.x
