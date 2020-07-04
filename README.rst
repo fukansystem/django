@@ -19,4 +19,4 @@ To rebase on the upstream:
     | $ git fetch upstream
     | $ git checkout stable/3.0.x
     | $ git rebase upstream/stable/3.0.x
-    | $ git push -f origin master
+    | $ git push -f origin stable/3.0.x
